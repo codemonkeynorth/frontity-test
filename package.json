@@ -11,7 +11,7 @@
     "npm": ">=6.0.0"
   },
   "scripts": {
-    "dev": "frontity dev",
+    "dev": "cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 frontity dev",
     "build": "frontity build",
     "serve": "frontity serve"
   },
@@ -23,6 +23,10 @@
     "@frontity/mars-theme": "./packages/mars-theme",
     "@frontity/tiny-router": "^1.4.2",
     "@frontity/wp-source": "^1.11.5",
+    "@frontity/yoast": "^2.1.1",
     "frontity": "^1.16.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }
