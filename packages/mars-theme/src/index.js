@@ -3,6 +3,8 @@ import image from "@frontity/html2react/processors/image";
 import iframe from "@frontity/html2react/processors/iframe";
 import link from "@frontity/html2react/processors/link";
 
+import eventsHandler from "./handlers/eventsHandler"
+
 const marsTheme = {
   name: "@frontity/mars-theme",
   roots: {
@@ -40,6 +42,10 @@ const marsTheme = {
       closeMobileMenu: ({ state }) => {
         state.theme.isMobileMenuOpen = false;
       },
+      beforeSSR: async ({ state, actions, libraries }) => {
+        console.log("beforeSSR:", state.router.link);
+        console.log("state => ", state)
+      }
     },
   },
   libraries: {
@@ -51,6 +57,10 @@ const marsTheme = {
        */
       processors: [image, iframe, link],
     },
+    source: {
+      // TRY comment out the eventsHandler
+      handlers: [eventsHandler]
+    }
   },
 };
 

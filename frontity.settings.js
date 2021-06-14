@@ -2,8 +2,8 @@ const settings = {
   "name": "frontity-test",
   "state": {
     "frontity": {
-      "url": "https://test.frontity.org",
-      "title": "Test Frontity Blog",
+      "url": "https://frontity-test.codemonkeynorth.co.uk",
+      "title": "Frontity Test",
       "description": "WordPress installation for Frontity development"
     }
   },
@@ -17,6 +17,15 @@ const settings = {
               "Home",
               "/"
             ],
+            [
+              "Events",
+              "/events/"
+            ],
+            [
+              "Blog",
+              "/blog/"
+            ]
+            /*
             [
               "Nature",
               "/category/nature/"
@@ -32,7 +41,7 @@ const settings = {
             [
               "About Us",
               "/about-us/"
-            ]
+            ]*/
           ],
           "featured": {
             "showOnList": false,
@@ -45,12 +54,26 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "url": "https://test.frontity.org"
+          //"url": "https://test.frontity.org"
+          url: "https://frontity-test-wp.codemonkeynorth.co.uk",
+          "homepage": "/home",
+          "postsPage": "/blog",
+          params: {
+            per_page: 2
+          },
+          postTypes: [
+            {
+              type: "event",
+              endpoint: "event",
+              archive: "events",              
+            },
+          ]
         }
       }
     },
     "@frontity/tiny-router",
-    "@frontity/html2react"
+    "@frontity/html2react",
+    "@frontity/head-tags"
   ]
 };
 
